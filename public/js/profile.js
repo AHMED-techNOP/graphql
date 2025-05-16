@@ -30,8 +30,12 @@ export async function ProfilePage() {
         throw new Error("Failed to fetch user data");
       }
 
+
+
       const Data = result.data.user;
-  
+      if (!Data) {
+        throw new Error("No user data found");
+      }
       Data.forEach(Element => {
         config.USER_DATA.username = Element.login;
         config.USER_DATA.firstName = Element.firstName;

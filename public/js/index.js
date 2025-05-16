@@ -6,6 +6,7 @@ const config = {
     SIGNIN: "https://learn.zone01oujda.ma/api/auth/signin",
     GRAPHQL: "https://learn.zone01oujda.ma/api/graphql-engine/v1/graphql"
   },
+  
   USER_DATA : {
     username: "",
     firstName: "",
@@ -79,6 +80,9 @@ const profileHTML = (userData) => `
 </div>
 `;
 
+
+
+
 function formatSize(sizeInBytes, xp) {
   var result;
   if (sizeInBytes < 1000) {
@@ -109,6 +113,8 @@ function isLoging() {
   }
 }
 
-isLoging()
 
+
+
+isLoging()
 export {formatSize,profileHTML,loginPage, config}

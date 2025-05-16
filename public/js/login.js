@@ -21,7 +21,7 @@ async function submit(username, password) {
           "Content-Type": "application/json"
         },
       });
-  
+      
       if (!response.ok) {
         document.getElementById("error-message").innerHTML = `Invalid credentials. Please try again.`;
         setTimeout(() => {
