@@ -25,7 +25,6 @@ export async function ProfilePage() {
       });
   
       const result = await response.json();
-      console.log("hhhh",result);
       if (result.errors) {
         throw new Error("Failed to fetch user data");
       }
@@ -64,12 +63,15 @@ export async function ProfilePage() {
       });
 
       document.body.innerHTML = profileHTML(config.USER_DATA);
+
       const graph1 = document.getElementById("svg-chart1");
+
       createSVG(graph1, "graph1", members.length);
       const svg1 = document.getElementById("svg-graph1");
       
       createGRAPH(svg1, members);
       const graph2 = document.getElementById("chart2");
+
       createAuditRatio(config.USER_DATA, graph2);
       document.getElementById("btn-logout").addEventListener("click", () => {
         localStorage.removeItem("jwt");
@@ -110,13 +112,12 @@ export async function ProfilePage() {
     const barWidth = 30;
     const barSpacing = 15;
     const graphHeight = 280;
-    const baseX = 0;
     const NamesAndTimes = document.getElementById("names-and-times");
   
     DATA.forEach((item, index) => {
   
       const barHeight = (item.times / maxTimes) * 250;
-      const x = baseX + index * (barWidth + barSpacing);
+      const x = index * (barWidth + barSpacing);
       const y = graphHeight - barHeight;
   
       const rect = document.createElementNS("http://www.w3.org/2000/svg", "rect");
@@ -146,8 +147,8 @@ export async function ProfilePage() {
   
     const svgString = `
     <svg width="300" height="150" xmlns="http://www.w3.org/2000/svg">
-      <rect x="10" y="60" width="${(widthUp / (totalwidth)) * 200}" height="30" fill="#009319" />
-      <rect x="${10 + (widthUp / (totalwidth)) * 200}" y="60" width="${(widthDown / (totalwidth)) * 200}" height="30" fill="#a00c20" />
+      <rect x="10" y="60" width="${(widthUp / (totalwidth)) * 210}" height="30" fill="#009319" />
+      <rect x="${10 + (widthUp / (totalwidth)) * 210}" y="60" width="${(widthDown / (totalwidth)) * 210}" height="30" fill="#a00c20" />
   
       <text x="10" y="40" font-size="20" fill="black">Your ratio : <tspan fill="black">${USER_DATA.auditRatio}</tspan></text>
       <text x="10" y="105" font-size="14" fill="#black">Up: ${formatSize(USER_DATA.totalUp)}</text>

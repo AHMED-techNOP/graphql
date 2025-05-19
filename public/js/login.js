@@ -23,6 +23,8 @@ async function submit(username, password) {
       });
       
       if (!response.ok) {
+        console.log(response);
+        
         document.getElementById("error-message").innerHTML = `Invalid credentials. Please try again.`;
         setTimeout(() => {
           document.getElementById("error-message").innerHTML = ``;
