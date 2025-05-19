@@ -61,7 +61,6 @@ export async function ProfilePage() {
           }
         });
       });
-
       document.body.innerHTML = profileHTML(config.USER_DATA);
 
       const graph1 = document.getElementById("svg-chart1");
