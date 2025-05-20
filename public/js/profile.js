@@ -23,7 +23,7 @@ export async function ProfilePage() {
         },
         body: JSON.stringify({ query }),
       });
-  
+
       const result = await response.json();
       if (result.errors) {
         throw new Error("Failed to fetch user data");
@@ -32,6 +32,8 @@ export async function ProfilePage() {
 
 
       const Data = result.data.user;
+      console.log("Data:", result);
+      
       if (!Data) {
         throw new Error("No user data found");
       }
@@ -124,7 +126,7 @@ export async function ProfilePage() {
       rect.setAttribute("y", y);
       rect.setAttribute("width", barWidth);
       rect.setAttribute("height", barHeight);
-      rect.setAttribute("fill", "#9b0072");
+      rect.setAttribute("fill", "#0044ae");
       rect.setAttribute("cursor", "pointer");
       rect.setAttribute("rx", 5); // Add border radius
       rect.setAttribute("ry", 5); // Add border radius
